@@ -1,6 +1,12 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+
+    <new
+      :msg="msg"
+    ></new>
+
+
     <h2>{{ author }}</h2>
     <p>age: {{ age + 10 }}</p>
     <p>{{ article }} 이렇게 쓰면 태그가 다 노출 됨 해결책은 v-html</p>
@@ -63,8 +69,13 @@
 </template>
 
 <script>
+import New from './New';
+
 export default {
   name: 'HelloWorld',
+  components: {
+    New
+  },
   methods: {
     updateScore(score) {
       this.score = score;
