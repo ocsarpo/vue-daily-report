@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <!-- <h1>{{ msg }}</h1>
+    <h1>{{ msg }}</h1>
     <h2>{{ author }}</h2>
     <p>age: {{ age + 10 }}</p>
     <p>{{ article }} 이렇게 쓰면 태그가 다 노출 됨 해결책은 v-html</p>
@@ -42,7 +42,7 @@
   <input type="text" @keyup.enter="keyup">
 
   <h1>score: {{score}}</h1>
-  <h2>오늘: {{today}}</h2> -->
+  <h2>오늘: {{today}}</h2>
 
   <h1>{{ msg }}</h1>
   <input type="text" placeholder="입력하세요" v-model="msg">
@@ -107,6 +107,35 @@ export default {
         location: 'Seoul'
       }
     }
+  },
+  beforeCreate() {
+    // https://kr.vuejs.org/v2/guide/instance.html#%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4-%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8
+    console.log('beforeCreate');
+    console.log(this.score);
+  },
+  created() {
+    console.log('created');
+    console.log(this.score);
+  },
+  beforeMount() {
+    console.log('beforeMount');
+    console.log(this.score);
+  },
+  mounted() {
+    console.log('mounted');
+    console.log(this.score);
+  },
+  beforeUpdate() {
+    console.log('beforeUpdate');
+  },
+  updated() {
+    console.log('updated');
+  },
+  beforeDestroy() {
+    console.log('beforeDestroy');
+  },
+  destroyed() {
+    console.log('destroyed');
   }
   // props: {
   //   msg: String
