@@ -1,12 +1,12 @@
 <template>
   <div class="hello">
-    소개
+    Intro
   </div>
 </template>
 
 <script>
 export default {
-  name: 'About',
+  name: 'Intro',
   methods: {
   },
   computed: {

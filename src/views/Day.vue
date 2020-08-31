@@ -1,13 +1,12 @@
 <template>
   <div class="hello">
-    <h1>New component!</h1>
-    <h1>{{msg}} from parent.</h1>
+    Day
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Day',
   methods: {
   },
   computed: {
@@ -17,7 +16,6 @@ export default {
     }
   },
   props: {
-    msg: String
   }
 }
 </script>

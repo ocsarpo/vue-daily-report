@@ -1,12 +1,12 @@
 <template>
   <div class="hello">
-    소개
+    달력
   </div>
 </template>
 
 <script>
 export default {
-  name: 'About',
+  name: 'Calendar',
   methods: {
   },
   computed: {
