@@ -8,8 +8,10 @@
 </template>
 
 <script>
-import { FullCalendar } from 'vue-full-calendar'
-import 'fullcalendar/dist/fullcalendar.css'
+import { FullCalendar } from 'vue-full-calendar';
+import 'fullcalendar/dist/fullcalendar.css';
+
+import { mapGetters } from 'vuex';
 
 export default {  
   name: 'Calendar',
@@ -20,9 +22,13 @@ export default {
     dayClick(date) {
       let url = `/day/${date.format('YYYY-MM-DD')}`
       this.$router.push(url);
+    },
+    applySettings() {
+      this.config['locale'] = this.savedSettings.lang;
     }
   },
   computed: {
+    ...mapGetters(['savedSettings'])
   },
   data() {
     return {
@@ -33,11 +39,13 @@ export default {
           center: 'title',
           right: 'next'
         },
-        height: 500
+        height: 500,
+        // locale: this.savedSettings.lang // data는 다이나믹할당x
       }
     }
   },
-  props: {
+  created() {
+    this.applySettings();
   }
 }
 </script>

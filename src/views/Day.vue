@@ -56,6 +56,8 @@ import DayScore from '../components/DayScore'
 import axios from 'axios'
 import moment from 'moment'
 
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Day',
   methods: {
@@ -78,7 +80,7 @@ export default {
     displayItems(data) {
       // 12 개의 빈슬롯을 만들고 그 중 존재하는 데이터만 채워 넣자.
       let items = [];
-      let startTime = '08:00';
+      let startTime = this.savedSettings.starttime;
       for(let i = 0 ; i < 12; i++) {
         let datetime = moment(this.$route.params.date + ' ' + startTime);
         let itemKey = `${this.$route.params.date}-${datetime.add(i*2, 'hours').format('HH')}-${datetime.add(2, 'hours').format('HH')}`;        
@@ -112,7 +114,8 @@ export default {
       item.open = !item.open;
     }
   },
-  computed: {    
+  computed: {
+    ...mapGetters(['savedSettings']),
   },
   components: {
     DayScore
