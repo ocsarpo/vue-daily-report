@@ -13,6 +13,7 @@
     "core-js": "^3.6.5",
     "moment": "^2.27.0",
     "vue": "^2.6.11",
+    "vue-full-calendar": "^2.8.1-0",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0",
     "xeicon": "^2.3.3"

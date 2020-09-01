@@ -1,18 +1,40 @@
 <template>
-  <div class="hello">
-    달력
+  <div class="calendar">
+    <FullCalendar
+      :config="config"
+      @day-click="dayClick"
+    ></FullCalendar>
   </div>
 </template>
 
 <script>
-export default {
+import { FullCalendar } from 'vue-full-calendar'
+import 'fullcalendar/dist/fullcalendar.css'
+
+export default {  
   name: 'Calendar',
+  components: {
+    FullCalendar
+  },
   methods: {
+    dayClick(date) {
+      let url = `/day/${date.format('YYYY-MM-DD')}`
+      this.$router.push(url);
+    }
   },
   computed: {
   },
   data() {
     return {
+      config: {
+        defaultView: 'month',
+        header: {
+          left: 'prev',
+          center: 'title',
+          right: 'next'
+        },
+        height: 500
+      }
     }
   },
   props: {
